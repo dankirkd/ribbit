@@ -1,7 +1,7 @@
 P2PU Introduction to Ruby and Rails - Week 4 assignment.
 http://alindeman.github.com/p2pu-rubyrails/week4.html
 
-Ribbet is a simple system for posting and rating web links.
+Ribbit is a simple system for posting and rating web links.
 
 This application has been pushed to Heroku and can be
-viewed at http://ribbet.heroku.com/
+viewed at http://ribbit.heroku.com/
