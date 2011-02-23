@@ -1,6 +1,5 @@
 .bundle
 deploy-to-heroku.sh
-merge-to-heroku.sh
 config/app.yml
 db/*.sqlite3
 log/*.log
