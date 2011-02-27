@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ribbet (A P2PU Introduction to Ruby and Rails App)</title>
+  <title>Ribbet! (A P2PU Introduction to Ruby and Rails App)</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-<div id="user_nav">
-    <% if user_signed_in? %>
-      Signed in as <%= current_user.email %>.  
-      (Not you? <%= link_to "Sign out", destroy_user_session_path %>)
-    <% end %>
+<div id="header">
+    <div id="title">Ribbit!</div>
+    <div id="subtitle">Links at a Leap!</div>
+    <div class="userinfo">
+        <% if user_signed_in? %>
+          You're signed in as <i><%= link_to current_user.email, edit_user_registration_path %></i>.  
+          &nbsp;<span class="smallprint">(<%= link_to "Sign out", destroy_user_session_path %> / 
+          <%= link_to "Delete Account", registration_path(current_user), :confirm => "Are you sure you really want to delete your account?", :method => :delete %>)</span>
+        <% end %>
+    </div>
 </div>
 
 <p class="notice"><%= notice %></p>

@@ -12,9 +12,9 @@ pre {
   font-size: 11px;
 }
 
-a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
+a { color: #080; }
+a:visited { color: #7b7; }
+a:hover { color: #0f0; }
 
 div.field, div.actions {
   margin-bottom: 10px;
@@ -26,6 +26,28 @@ div.field, div.actions {
   background-position: top left;
   height: 64px;
   padding-left: 50px;
+}
+
+#title {
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: 5px;    
+}
+
+#subtitle {
+  font-size: 14px;
+  font-style: italic;    
+  padding-bottom: 8px;    
+  padding-left: 5px;    
+}
+
+.userinfo {
+  font-size: 11px;
+  padding-left: 5px;    
+}
+
+.smallprint {
+  font-size: 9px;
 }
 
 
