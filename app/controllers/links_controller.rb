@@ -41,9 +41,14 @@ class LinksController < ApplicationController
   # POST /links.xml
   def create
     @link = Link.new(params[:link])
+    @link.user = current_user
+    @vote = Vote.new
+    @vote.link = @link
+    @vote.user = current_user
 
     respond_to do |format|
       if @link.save
+        @vote.save
         format.html { redirect_to(@link, :notice => 'Link was successfully created.') }
         format.xml  { render :xml => @link, :status => :created, :location => @link }
       else

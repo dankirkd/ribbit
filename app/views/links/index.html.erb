@@ -1,22 +1,14 @@
-<h1>Listing links</h1>
+<h1>Submitted Links</h1>
 
 <table>
-  <tr>
-    <th>Url</th>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Submitted by</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @links.each do |link| %>
-  <tr>
-    <td><%= link.url %></td>
-    <td><%= link.title %></td>
-    <td><%= link.description %></td>
-    <td><%= link.submitted_by %></td>
+  <tr valign="top">
+    <td><div id="votecount"><%= votecount(link) %></div></td>
+    <td><div id="thumbsup"><%= image_tag("thumbsup.gif", :border =>"0") %></div><div id="thumbsdown"><%= image_tag("thumbsdown.gif", :border =>"0") %></div></td>
+    <td><div id="linkto"><%= link_to link.title, link.url, :target => "_blank" %><br/></div>
+    <div id="description"><%= link.description %><br/></div>
+    <div id="submittedby">Submitted by <i><%= link.user.email %></i></div></td>
     <td><%= link_to 'Show', link %></td>
     <td><%= link_to 'Edit', edit_link_path(link) %></td>
     <td><%= link_to 'Destroy', link, :confirm => 'Are you sure?', :method => :delete %></td>

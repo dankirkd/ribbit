@@ -49,6 +49,36 @@ div.field, div.actions {
   padding-left: 5px;    
 }
 
+#votecount {
+  font-size: 18px;
+  color: GrayText;    
+  padding-top: 12px;    
+}
+
+#thumbsup {
+  padding-top: 4px;    
+}
+
+#thumbsup a,
+#thumbsdown a {
+  outline: none;
+}
+
+#linkto {
+  font-size: 13px;
+}
+
+#description {
+  font-size: 10px;
+  font-style: italic;
+  line-height: 10px;
+  color: GrayText;    
+}
+
+#submittedby {
+  font-size: 9px;
+}
+
 .userinfo {
   font-size: 11px;
   padding-left: 5px;    
