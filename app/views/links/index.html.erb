@@ -6,7 +6,7 @@
   <tr valign="top">
     <td><div id="votecount"><%= votecount(link) %></div></td>
     <td><div id="thumbsup"><%= image_tag("thumbsup.gif", :border =>"0") %></div><div id="thumbsdown"><%= image_tag("thumbsdown.gif", :border =>"0") %></div></td>
-    <td><div id="linkto"><%= link_to link.title, link.url, :target => "_blank" %><br/></div>
+    <td><div id="linkto" class="dotdotdot"><%= link_to link.title, link.url, :target => "_blank" %><br/></div>
     <div id="description"><%= link.description %><br/></div>
     <div id="submittedby">Submitted <%= link.created_at.strftime("%e-%b-%Y at %I:%M%P %Z") %> by <i><%= link.user.email %></i>
     <% if link.created_at != link.updated_at %>

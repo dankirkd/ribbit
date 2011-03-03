@@ -33,6 +33,10 @@ div.field, div.actions {
   outline: none;
 }
 
+.dotdotdot {
+  background: url("/images/dotdotdot.gif") repeat-x;
+}
+
 #header {
   display: inline-block;
   height: 64px;
