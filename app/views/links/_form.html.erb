@@ -12,18 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
+  <% if f.object.url.blank? %>
+    <%= f.label :url %>:<br />
+    <%= f.text_field :url, :size => 60, :maxlength => 100 %>
+  <% else %>
+    <%= f.label :url %>: <%= f.object.url %>
+  <% end %>
   </div>
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.label :title %>:<br />
+    <%= f.text_field :title, :size => 60, :maxlength => 100 %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.label :description %>:<br />
+    <%= f.text_area :description, :rows => 10, :cols => 45 %>
   </div>
+  <% if !f.object.url.blank? %>
+    <div class="field">
+      <%= f.object.updated_at.strftime("Last Updated on %e-%b-%Y at %I:%M%P %Z") %><br />
+    </div>
+  <% end %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Save Link" %>
   </div>
 <% end %>

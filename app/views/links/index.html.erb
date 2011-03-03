@@ -1,4 +1,4 @@
-<h1>Submitted Links</h1>
+<h2>Submitted Links</h2>
 
 <table>
 
@@ -8,14 +8,19 @@
     <td><div id="thumbsup"><%= image_tag("thumbsup.gif", :border =>"0") %></div><div id="thumbsdown"><%= image_tag("thumbsdown.gif", :border =>"0") %></div></td>
     <td><div id="linkto"><%= link_to link.title, link.url, :target => "_blank" %><br/></div>
     <div id="description"><%= link.description %><br/></div>
-    <div id="submittedby">Submitted by <i><%= link.user.email %></i></div></td>
-    <td><%= link_to 'Show', link %></td>
-    <td><%= link_to 'Edit', edit_link_path(link) %></td>
-    <td><%= link_to 'Destroy', link, :confirm => 'Are you sure?', :method => :delete %></td>
+    <div id="submittedby">Submitted <%= link.created_at.strftime("%e-%b-%Y at %I:%M%P %Z") %> by <i><%= link.user.email %></i>
+    <% if link.created_at != link.updated_at %>
+        <br/>&nbsp;&nbsp; <%= link.updated_at.strftime("Updated %e-%b-%Y at %I:%M%P %Z") %>
+    <% end %>
+    </div></td>
+    <% if current_user.email == link.user.email %>
+      <td><div id="imagebutton"><%= link_to image_tag("edit.gif", :border =>"0", :alt =>"Edit", :title =>"Edit"), edit_link_path(link) %></div></td>
+      <td><div id="imagebutton"><%= link_to image_tag("trashcan.gif", :border =>"0", :alt =>"Delete", :title =>"Delete"), link, :confirm => "Are you sure you really want to delete this link?", :method => :delete %></div></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Link', new_link_path %>
+<%= link_to 'Add a new link', new_link_path %>

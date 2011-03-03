@@ -10,17 +10,6 @@ class LinksController < ApplicationController
     end
   end
 
-  # GET /links/1
-  # GET /links/1.xml
-  def show
-    @link = Link.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @link }
-    end
-  end
-
   # GET /links/new
   # GET /links/new.xml
   def new
@@ -49,7 +38,7 @@ class LinksController < ApplicationController
     respond_to do |format|
       if @link.save
         @vote.save
-        format.html { redirect_to(@link, :notice => 'Link was successfully created.') }
+        format.html { redirect_to(links_url, :notice => 'Link was successfully created.') }
         format.xml  { render :xml => @link, :status => :created, :location => @link }
       else
         format.html { render :action => "new" }
@@ -65,7 +54,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.update_attributes(params[:link])
-        format.html { redirect_to(@link, :notice => 'Link was successfully updated.') }
+        format.html { redirect_to(links_url, :notice => 'Link was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -83,6 +72,22 @@ class LinksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(links_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  # PUT /links/1
+  def upvote
+    @link = Link.find(params[:id])
+    @vote = Vote.new
+    @vote.link = @link
+    @vote.user = current_user
+
+    respond_to do |format|
+      if @vote.save
+        format.html { redirect_to(links_url, :notice => 'Your vote was successfully recorded.') }
+      else
+        format.html { redirect_to(links_url, :notice => 'Your vote was not recorded.') }
+      end
     end
   end
 end

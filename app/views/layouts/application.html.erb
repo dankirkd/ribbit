@@ -16,7 +16,7 @@
     <div class="userinfo">
         <% if user_signed_in? %>
           You're signed in as <i><%= link_to current_user.email, edit_user_registration_path %></i>.  
-          &nbsp;<span class="smallprint">(<%= link_to "Sign out", destroy_user_session_path %> / 
+          &nbsp;<span class="smallprint">(<%= link_to "Sign Out", destroy_user_session_path %> / 
           <%= link_to "Delete Account", registration_path(current_user), :confirm => "Are you sure you really want to delete your account?", :method => :delete %>)</span>
         <% end %>
     </div>

@@ -29,6 +29,10 @@ div.field, div.actions {
   outline: none;
 }
 
+#imagebutton a {
+  outline: none;
+}
+
 #header {
   display: inline-block;
   height: 64px;
@@ -77,6 +81,8 @@ div.field, div.actions {
 
 #submittedby {
   font-size: 9px;
+  line-height: 10px;
+  padding-top: 5px;
 }
 
 .userinfo {
