@@ -1,8 +1,10 @@
 class LinksController < ApplicationController
+  include LinksHelper
+
   # GET /links
   # GET /links.xml
   def index
-    @links = Link.all
+    @links = Link.all.sort { |linka,linkb| votecount(linkb) <=> votecount(linka) }
 
     respond_to do |format|
       format.html # index.html.erb
@@ -75,8 +77,30 @@ class LinksController < ApplicationController
     end
   end
 
-  # PUT /links/1
+  # PUT /links/1/upvote
   def upvote
+    # Rails.logger.info("current_user: #{current_user}")
+  
+    @link = Link.find(params[:id])
+    @user = User.find(current_user.id)
+    @vote = Vote.new
+    @vote.link = @link
+    # Rails.logger.info("current_user: #{@current_user.inspect}")
+    # Rails.logger.info("user: #{@user.inspect}")
+    @vote.user = @user
+    # Rails.logger.info("vote: #{@vote.inspect}")
+
+    respond_to do |format|
+      if @vote.save
+        format.html { redirect_to(links_url, :notice => 'Your vote was successfully recorded.') }
+      else
+        format.html { redirect_to(links_url, :notice => 'Your vote was not recorded.') }
+      end
+    end
+  end
+
+  # PUT /links/1/downvote
+  def downvote
     @link = Link.find(params[:id])
     @vote = Vote.new
     @vote.link = @link

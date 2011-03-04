@@ -1,5 +1,10 @@
 Ribbet::Application.routes.draw do
-  resources :links
+  resources :links do
+    member do
+      put 'upvote'
+      put 'downvote'
+    end
+  end
 
   get "home/index"
 

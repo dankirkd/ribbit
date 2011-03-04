@@ -60,11 +60,14 @@ div.field, div.actions {
 #votecount {
   font-size: 18px;
   color: GrayText;    
-  padding-top: 12px;    
+  padding-top: 12px;
+  padding-right: 3px;
+  float: right;    
 }
 
 #thumbsup {
-  padding-top: 4px;    
+  padding-top: 4px;
+  padding-right: 3px;    
 }
 
 #thumbsup a,
