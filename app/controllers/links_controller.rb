@@ -30,10 +30,10 @@ class LinksController < ApplicationController
   # POST /links.xml
   def create
     @link = Link.new(params[:link])
-    @link.user = current_user
+    @link.email = current_user.email
     @vote = Vote.new
     @vote.link = @link
-    @vote.user = current_user
+    @vote.email = current_user.email
 
     respond_to do |format|
       if @link.save
@@ -75,7 +75,7 @@ class LinksController < ApplicationController
     # Rails.logger.info("current_user: #{current_user.inspect}")
     
     # Find previously existing vote (if any)
-    @vote = Vote.where("votes.link_id = ? AND votes.user_id = ?", params[:id], current_user.id).first
+    @vote = Vote.where("votes.link_id = ? AND votes.email = ?", params[:id], current_user.email).first
     Rails.logger.info("Looking to alter: #{@vote.inspect}")
     
     message = ""
@@ -85,7 +85,7 @@ class LinksController < ApplicationController
       @vote = Vote.new
       @vote.errors.clear
       @vote.link = @link
-      @vote.user = @user
+      @vote.email = @user.email
       # Note default value for @vote.total is 1
     else
       # If already +1
@@ -98,8 +98,8 @@ class LinksController < ApplicationController
     
     respond_to do |format|
       if @vote.invalid? 
-        Rails.logger.info("error: #{@vote.errors[:user_id][0]}")
-        message = @vote.errors[:user_id][0]
+        Rails.logger.info("error: #{@vote.errors[:email][0]}")
+        message = @vote.errors[:email][0]
       else 
         if message == ""
           if @vote.save
@@ -118,7 +118,7 @@ class LinksController < ApplicationController
     # Rails.logger.info("current_user: #{current_user.inspect}")
     
     # Find previously existing vote (if any)
-    @vote = Vote.where("votes.link_id = ? AND votes.user_id = ?", params[:id], current_user.id).first
+    @vote = Vote.where("votes.link_id = ? AND votes.email = ?", params[:id], current_user.email).first
     Rails.logger.info("Looking to alter: #{@vote.inspect}")
     
     message = ""
@@ -128,7 +128,7 @@ class LinksController < ApplicationController
       @vote = Vote.new
       @vote.errors.clear
       @vote.link = @link
-      @vote.user = @user
+      @vote.email = @user.email
     end
     # If already -1
     if @vote.total == -1 
