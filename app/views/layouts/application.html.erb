@@ -22,6 +22,9 @@
             <% end %>
         </div>
     </div>
+    <% if Link.all.count > 1 %>
+        <div id="accountsinfo">There are <%= Link.all.count %> active accounts</div>
+    <% end %>
 
     <p><span class="notice"><%= notice %>&nbsp;</span><span class="alert"><%= alert %>&nbsp;</span></p>
            
