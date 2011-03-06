@@ -7,7 +7,22 @@
 <% @links.each do |link| %>
   <tr valign="top">
     <td><div id="votecount"><%= votecount(link) %></div></td>
-    <td><div id="thumbsup"><%= link_to image_tag("thumbsup.gif", :border =>"0", :alt =>"Vote for this link", :title =>"Vote for this link"), upvote_link_path(link), :method => :put %></div><div id="thumbsdown"><%= link_to image_tag("thumbsdown.gif", :border =>"0", :alt =>"Vote against this link", :title =>"Vote against this link"), downvote_link_path(link), :method => :put %></div></td>
+    <td>
+      <div id="thumbsup">
+        <% if votecast(link) <= 0 %>
+          <%= link_to image_tag(getthumbimage("up",link), :border =>"0", :alt => getthumbtext("up",link), :title => getthumbtext("up",link)), upvote_link_path(link), :method => :put %>
+        <% else %>
+          <%= image_tag(getthumbimage("up",link), :border =>"0", :alt => getthumbtext("up",link), :title => getthumbtext("up",link)) %>
+        <% end %>
+      </div>
+      <div id="thumbsdown">
+        <% if votecast(link) >= 0 %>
+          <%= link_to image_tag(getthumbimage("down",link), :border =>"0", :alt => getthumbtext("down",link), :title => getthumbtext("down",link)), downvote_link_path(link), :method => :put %>
+        <% else %>
+          <%= image_tag(getthumbimage("down",link), :border =>"0", :alt => getthumbtext("down",link), :title => getthumbtext("down",link)) %>
+        <% end %>
+      </div>
+    </td>
     <td><div id="linkto" class="dotdotdot"><%= link_to link.title, link.url, :target => "_blank" %><br/></div>
     <div id="description"><%= link.description %><br/></div>
     <div id="submittedby">Submitted <%= link.created_at.strftime("%e-%b-%Y at %I:%M%P %Z") %> by <i><%= link.email %></i>
