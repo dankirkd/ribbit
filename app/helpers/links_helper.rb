@@ -1,5 +1,5 @@
 module LinksHelper
   def votecount(link)
-    Vote.joins(:link).where('votes.link_id' => link.id).count
+    Vote.joins(:link).where('votes.link_id' => link.id).sum('votes.total')
   end
 end

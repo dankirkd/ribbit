@@ -1,11 +1,13 @@
+
+<% if @links.count == 0 %>
+<p>No links have been submitted.  Click the link below to add one.</p>
+<% else %>
 <h2>Submitted Links</h2>
-
 <table>
-
 <% @links.each do |link| %>
   <tr valign="top">
     <td><div id="votecount"><%= votecount(link) %></div></td>
-    <td><div id="thumbsup"><%= link_to image_tag("thumbsup.gif", :border =>"0", :alt =>"Vote for this link", :title =>"Vote for this link"), upvote_link_path(link), :method => :put %></div><div id="thumbsdown"><%= image_tag("thumbsdown.gif", :border =>"0", :alt =>"Vote against this link", :title =>"Vote against this link") %></div></td>
+    <td><div id="thumbsup"><%= link_to image_tag("thumbsup.gif", :border =>"0", :alt =>"Vote for this link", :title =>"Vote for this link"), upvote_link_path(link), :method => :put %></div><div id="thumbsdown"><%= link_to image_tag("thumbsdown.gif", :border =>"0", :alt =>"Vote against this link", :title =>"Vote against this link"), downvote_link_path(link), :method => :put %></div></td>
     <td><div id="linkto" class="dotdotdot"><%= link_to link.title, link.url, :target => "_blank" %><br/></div>
     <div id="description"><%= link.description %><br/></div>
     <div id="submittedby">Submitted <%= link.created_at.strftime("%e-%b-%Y at %I:%M%P %Z") %> by <i><%= link.user.email %></i>
@@ -20,6 +22,7 @@
   </tr>
 <% end %>
 </table>
+<% end %>
 
 <br />
 

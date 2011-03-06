@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110227030628) do
+ActiveRecord::Schema.define(:version => 20110306035148) do
 
   create_table "links", :force => true do |t|
     t.string   "url"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20110227030628) do
     t.integer  "link_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "total",      :default => 1
   end
 
 end
