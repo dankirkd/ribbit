@@ -3,7 +3,7 @@
 <p>No links have been submitted.  Click the link below to add one.</p>
 <% else %>
 <h2>Submitted Links</h2>
-<table>
+<table class="linktable">
 <% @links.each do |link| %>
   <tr valign="top">
     <td><div id="votecount"><%= votecount(link) %></div></td>
@@ -24,6 +24,4 @@
 </table>
 <% end %>
 
-<br />
-
-<%= link_to 'Add a new link', new_link_path %>
+<div id="addlink"><%= link_to 'Add a new link', new_link_path %></div>

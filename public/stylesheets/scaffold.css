@@ -20,6 +20,12 @@ div.field, div.actions {
   margin-bottom: 10px;
 }
 
+#app {
+  margin-left: auto;
+  margin-right: auto;
+  width: 630px;
+}
+
 #logo {
   float: left;
   height: 64px;
@@ -57,6 +63,12 @@ div.field, div.actions {
   padding-left: 5px;    
 }
 
+.linktable {
+  margin-left: 20px;
+  float: right;
+  width: 590px;
+}
+
 #votecount {
   font-size: 18px;
   color: GrayText;    
@@ -90,6 +102,7 @@ div.field, div.actions {
   font-size: 9px;
   line-height: 10px;
   padding-top: 5px;
+  padding-bottom: 10px;
 }
 
 .userinfo {
@@ -101,6 +114,11 @@ div.field, div.actions {
   font-size: 9px;
 }
 
+
+#addlink {
+  clear: both;
+  padding-top: 10px;
+}
 
 #notice {
   color: green;
