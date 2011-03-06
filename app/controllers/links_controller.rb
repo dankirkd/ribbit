@@ -86,6 +86,7 @@ class LinksController < ApplicationController
       @vote.errors.clear
       @vote.link = @link
       @vote.user = @user
+      # Note default value for @vote.total is 1
     else
       # If already +1
       if @vote.total == 1 
@@ -128,13 +129,12 @@ class LinksController < ApplicationController
       @vote.errors.clear
       @vote.link = @link
       @vote.user = @user
+    end
+    # If already -1
+    if @vote.total == -1 
+      message = "You've already voted against the link entitled '" + @link.title  + "'."
     else
-      # If already -1
-      if @vote.total == -1 
-        message = "You've already voted against the link entitled '" + @link.title  + "'."
-      else
-        @vote.total = -1
-      end
+      @vote.total = -1
     end
     
     respond_to do |format|
