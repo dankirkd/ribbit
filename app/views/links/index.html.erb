@@ -23,8 +23,8 @@
         <% end %>
       </div>
     </td>
-    <td><div id="linkto" class="dotdotdot"><%= link_to link.title, link.url, :target => "_blank" %><div id="linktohost">(<%= gethost(link.url) %>)</div><br/></div>
-    <div id="description"><%= link.description %><br/></div>
+    <td><div id="linkto" class="dotdotdot"><%= link_to link.title, link.url, :target => "_blank" %><div id="linktohost">(<%= gethost(link.url) %>)</div></div>
+    <div id="description"><%= link.description %></div>
     <div id="submittedby">Submitted <%= link.created_at.strftime("%e-%b-%Y at %I:%M%P %Z") %> by <i><%= link.email %></i>
     <% if link.created_at != link.updated_at %>
         <br/>&nbsp;&nbsp; <%= link.updated_at.strftime("Updated %e-%b-%Y at %I:%M%P %Z") %>
