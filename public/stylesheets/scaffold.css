@@ -90,6 +90,14 @@ div.field, div.actions {
   font-size: 13px;
 }
 
+#linktohost {
+  color: graytext;
+  display: inline;
+  font-size: x-small;
+  line-height: 10px;
+  padding-left: 7px;    
+}
+
 #description {
   font-size: 10px;
   font-style: italic;

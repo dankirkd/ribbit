@@ -35,4 +35,10 @@ module LinksHelper
       return "Vote against this link"
     end
   end
+  
+  def gethost(url)
+    require 'uri'
+    uri = URI.parse(url)
+    return uri.host.sub(/(^www\.)/,"")
+  end
 end
