@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  url: MyString
-  title: MyString
-  description: MyText
+google:
+  url: http://www.google.com/
+  title: Google
+  description: A search site.
 
-two:
-  url: MyString
-  title: MyString
-  description: MyText
+yahoo:
+  url: http://www.yahoo.com/
+  title: Yahoo
+  description: Another search site.

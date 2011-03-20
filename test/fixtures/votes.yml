@@ -1,9 +1,14 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  voter: 
-  link: 
+comcast-google:
+  email: dankirkd@comcast.net
+  link: google
 
-two:
-  voter: 
-  link: 
+comcast-yahoo:
+  email: dankirkd@comcast.net
+  link: yahoo
+
+gmail-google:
+  email: dankirkd@gmail.com
+  link: google
+
