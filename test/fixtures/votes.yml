@@ -2,13 +2,13 @@
 
 comcast-google:
   email: dankirkd@comcast.net
-  link: google
+  link: :google
 
 comcast-yahoo:
   email: dankirkd@comcast.net
-  link: yahoo
+  link: :yahoo
 
 gmail-google:
   email: dankirkd@gmail.com
-  link: google
+  link: :google
 

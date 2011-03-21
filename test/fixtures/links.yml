@@ -4,8 +4,11 @@ google:
   url: http://www.google.com/
   title: Google
   description: A search site.
-
+  email: dankirkd@comcast.net
+  
 yahoo:
   url: http://www.yahoo.com/
   title: Yahoo
   description: Another search site.
+  email: dankirkd@comcast.net
+  
