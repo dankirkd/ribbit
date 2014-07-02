@@ -1,24 +1,18 @@
 class LinksController < ApplicationController
   include LinksHelper
-
+  respond_to :html, :xml, :json
   # GET /links
   # GET /links.xml
   def index
     @links = Link.all.sort { |linka,linkb| votecount(linkb) <=> votecount(linka) }
-
-    respond_to do |format|
-      format.html # index.html.erb
-    end
+    respond_with(@links)
   end
 
   # GET /links/new
   # GET /links/new.xml
   def new
     @link = Link.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-    end
+    respond_with(@link)
   end
 
   # GET /links/1/edit
@@ -63,11 +57,7 @@ class LinksController < ApplicationController
   # DELETE /links/1.xml
   def destroy
     @link = Link.find(params[:id])
-    @link.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(links_url) }
-    end
+    respond_with(@link.destroy)
   end
 
   # PUT /links/1/upvote
